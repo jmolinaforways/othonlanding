@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Cita Confirmada! — Dr. Othon</title>
+  <meta name="description" content="Tu cita con el Dr. Othon ha sido agendada exitosamente. Nos vemos pronto." />
+  <!-- Prevent indexing of thank you page -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1824860601859421');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule');  /* Evento de conversion: cita agendada */
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1824860601859421&ev=Schedule&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    /* ===== THANK YOU PAGE SPECIFIC STYLES ===== */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ty-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ty-bg {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      z-index: -2;
+    }
+
+    .ty-bg::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+      top: -200px;
+      left: -200px;
+      border-radius: 50%;
+    }
+
+    .ty-bg::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+      bottom: -150px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .ty-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 3.5rem 2.5rem;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Checkmark animated circle */
+    .success-animation {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .success-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 0 rgba(16,185,129,0.4);
+      animation: pulse-success 2s ease infinite;
+    }
+
+    @keyframes pulse-success {
+      0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+      70%  { box-shadow: 0 0 0 20px rgba(16,185,129,0); }
+      100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+    }
+
+    .success-circle svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .check-path {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: draw-check 0.6s ease 0.3s forwards;
+    }
+
+    @keyframes draw-check {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Stars decoration */
+    .stars-row {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 1.25rem;
+      font-size: 1.2rem;
+      color: #F59E0B;
+    }
+
+    .ty-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .ty-title .highlight-green {
+      background: linear-gradient(135deg, #10B981, #34D399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .ty-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Info box */
+    .ty-info-box {
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .ty-info-box svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ty-info-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    .ty-info-text strong {
+      color: #93C5FD;
+    }
+
+    /* Divider */
+    .ty-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.75rem;
+    }
+
+    .ty-divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .ty-divider-text {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* WhatsApp CTA */
+    .next-steps-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 1rem 2rem;
+      border-radius: 14px;
+      width: 100%;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+    }
+
+    .whatsapp-btn:hover::before {
+      opacity: 1;
+    }
+
+    .whatsapp-btn span,
+    .whatsapp-btn svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .btn-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-label-small {
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.85;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-label-main {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* Phone display */
+    .phone-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Features list */
+    .ty-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .ty-feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .ty-feature-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(59,130,246,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.65rem;
+      color: #60A5FA;
+    }
+
+    @media (max-width: 480px) {
+      .ty-card { padding: 2.5rem 1.5rem; }
+      .ty-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="14" fill="url(#logo-grad-ty)"/>
+            <path d="M9 14c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 9v2M14 17v2M9 14H7M21 14h-2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-grad-ty" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6"/>
+                <stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Dr. <strong>Othon</strong></span>
+      </div>
+      <div class="header-badge" style="background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25);">
+        <span class="badge-dot" style="background: #10B981;"></span>
+        <span style="color: #34D399;">Cita confirmada</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- BACKGROUND -->
+  <div class="ty-bg"></div>
+
+  <!-- THANK YOU PAGE -->
+  <main class="ty-page" role="main">
+    <div class="ty-card">
+
+      <!-- Success animation -->
+      <div class="success-animation" aria-label="Cita confirmada exitosamente">
+        <div class="success-circle">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path class="check-path" d="M12 24l9 9 16-16" 
+              stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Stars -->
+      <div class="stars-row" aria-label="5 estrellas">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+
+      <h1 class="ty-title">
+        ¡Tu Cita está<br/>
+        <span class="highlight-green">Confirmada!</span>
+      </h1>
+
+      <p class="ty-subtitle">
+        Gracias por agendar con el <strong style="color: #fff;">Dr. Othon</strong>. 
+        Recibirás un correo de confirmación con todos los detalles de tu consulta.
+      </p>
+
+      <!-- Info reminder -->
+      <div class="ty-info-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="#60A5FA" stroke-width="1.5"/>
+          <path d="M12 8v4M12 16h.01" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p class="ty-info-text">
+          <strong>Revisa tu correo electrónico.</strong> Te enviamos una confirmación con la fecha, hora y dirección de tu consulta. Si no lo ves, revisa tu carpeta de spam.
+        </p>
+      </div>
+
+      <div class="ty-divider">
+        <div class="ty-divider-line"></div>
+        <div class="ty-divider-text">¿Tienes alguna pregunta?</div>
+        <div class="ty-divider-line"></div>
+      </div>
+
+      <p class="next-steps-label">Contáctanos por WhatsApp</p>
+
+      <!-- WHATSAPP BUTTON -->
+      <a 
+        href="https://wa.me/18499378061?text=Hola%20Dr.%20Othon%2C%20acabo%20de%20agendar%20mi%20cita%20y%20tengo%20una%20pregunta." 
+        class="whatsapp-btn"
+        id="whatsapp-contact-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar al Dr. Othon por WhatsApp al número 849-937-8061"
+      >
+        <!-- WhatsApp SVG Icon -->
+        <svg class="whatsapp-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.15)"/>
+          <path d="M24 10C16.268 10 10 16.268 10 24c0 2.463.646 4.773 1.775 6.778L10 38l7.46-1.748A13.94 13.94 0 0024 38c7.732 0 14-6.268 14-14S31.732 10 24 10z" fill="#ffffff"/>
+          <path d="M20.5 17.5c-.4-1-.8-1-1.2-1h-1c-.4 0-1 .2-1.5.7s-2 2-2 4.8c0 2.8 2 5.6 2.3 5.9.3.3 4 6.3 9.8 8.6 4.8 1.9 5.8 1.5 6.8 1.4 1-.1 3.3-1.3 3.8-2.6.5-1.3.5-2.4.3-2.6-.2-.2-.5-.3-1-.6-.5-.3-3.3-1.6-3.8-1.8-.5-.2-.9-.3-1.3.3-.4.6-1.5 1.8-1.8 2.2-.3.3-.7.4-1.2.1-.5-.3-2.2-.8-4.2-2.6-1.6-1.4-2.6-3.1-2.9-3.6-.3-.5 0-.8.2-1 .2-.2.5-.6.7-.8.2-.3.3-.5.5-.8.2-.3.1-.6 0-.9l-1.5-3.3z" fill="#25D366"/>
+        </svg>
+        <div class="btn-content">
+          <span class="btn-label-small">Escríbenos ahora ·&nbsp;(849) 937-8061</span>
+          <span class="btn-label-main">Contactar por WhatsApp</span>
+        </div>
+      </a>
+
+      <div class="phone-display">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.8 10.57 19.79 19.79 0 01.75 2a2 2 0 012-2.18H5.5a2 2 0 012 1.72A15.35 15.35 0 008 6.5a2 2 0 01-.45 2.11L6.09 10.1a16 16 0 006 6l1.49-1.46A2 2 0 0115.7 14.1a15.35 15.35 0 003 .5 2 2 0 011.72 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        También puedes llamar al (849) 937-8061
+      </div>
+
+      <!-- Quick features -->
+      <div class="ty-features">
+        <div class="ty-feature">
+          <div class="ty-feature-icon">✓</div>
+          Recordatorio previo
+        </div>
+        <div class="ty-feature">
+          <div class="ty-feature-icon">✓</div>
+          Atención puntual
+        </div>
+        <div class="ty-feature">
+          <div class="ty-feature-icon">✓</div>
+          Consulta privada
+        </div>
+        <div class="ty-feature">
+          <div class="ty-feature-icon">✓</div>
+          Diagnóstico certero
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" style="background: transparent; border-top: 1px solid rgba(255,255,255,0.06);">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy" style="color: rgba(255,255,255,0.35);">© 2026 Dr. Othon. Todos los derechos reservados.</p>
+        <p class="footer-note" style="color: rgba(255,255,255,0.25);">Tus datos son confidenciales y están protegidos.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Confetti celebration on load
+    (function() {
+      const colors = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#EC4899','#06B6D4'];
+      const count = 80;
+      const container = document.body;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.style.cssText = `
+          position: fixed;
+          width: ${Math.random() * 8 + 4}px;
+          height: ${Math.random() * 8 + 4}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+          left: ${Math.random() * 100}vw;
+          top: -10px;
+          z-index: 9999;
+          pointer-events: none;
+          opacity: ${Math.random() * 0.8 + 0.2};
+          animation: confetti-fall ${Math.random() * 3 + 2}s ease-in ${Math.random() * 1.5}s forwards;
+          transform: rotate(${Math.random() * 360}deg);
+        `;
+        container.appendChild(el);
+        setTimeout(() => el.remove(), 5000);
+      }
+    })();
+  </script>
+
+  <style>
+    @keyframes confetti-fall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+    }
+  </style>
+</body>
+</html>
