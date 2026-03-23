@@ -78,19 +78,7 @@ function toggleFaq(button) {
   });
 })();
 
-// ── Calendar iframe auto-resize ──────────────────────────
-(function () {
-  window.addEventListener('message', function (e) {
-    if (typeof e.data === 'object' && e.data.height) {
-      const iframe = document.getElementById('D5LoocAgL6M0CqwpDb0W_1774272347127');
-      if (iframe) {
-        iframe.style.height = e.data.height + 'px';
-      }
-    }
-  });
-})();
-
-// ── Urgency banner dismiss ───────────────────────────────
+// ── Urgency banner ───────────────────────────────────
 (function () {
   const banner = document.getElementById('urgency-banner');
   if (!banner) return;

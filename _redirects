@@ -3,7 +3,7 @@
 # Dr. Othon Landing Page
 # =====================================================
 
-# URLs amigables
-/gracias    /gracias.html   200
+# Aliases utiles (Cloudflare Pages ya sirve /gracias -> gracias.html automaticamente)
 /cita       /               301
 /agendar    /               301
+

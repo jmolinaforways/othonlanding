@@ -438,7 +438,7 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-xl);
-  overflow: hidden;
+  /* SIN overflow:hidden — el iframe de Leadways necesita expandirse libremente */
   box-shadow: var(--shadow-xl), 0 0 0 1px rgba(59,130,246,0.1);
   animation: card-appear 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
