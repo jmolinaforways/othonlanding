@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /gracias.html
+Disallow: /gracias
+
+Sitemap: https://othonlanding.pages.dev/sitemap.xml

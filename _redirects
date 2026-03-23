@@ -1,0 +1,14 @@
+# =====================================================
+# Cloudflare Pages — _redirects
+# Dr. Othon Landing Page
+# =====================================================
+
+# Redirigir /gracias a la página de agradecimiento
+/gracias    /gracias.html   200
+
+# Redirigir /cita y /agendar al inicio (donde está el calendario)
+/cita       /               301
+/agendar    /               301
+
+# 404 personalizado — volver al inicio
+/*          /index.html     200
