@@ -147,13 +147,38 @@
           </div>
         </div>
 
-        <!-- PRICE TAG — ancho completo -->
-        <div class="price-tag">
-          <div class="price-tag-inner">
-            <span class="price-label">Precio de la consulta</span>
-            <span class="price-amount">RD $2,000</span>
+        <!-- PRICING OPTIONS -->
+        <div class="price-tag" style="display: block; padding: 0.85rem 1rem;">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.4rem;">
+            Precio de la consulta (Evaluación)
           </div>
-          <div class="price-note">Pago al momento de la consulta</div>
+          
+          <!-- Variant 1 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+            <span style="font-size: 0.85rem; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#9CA3AF" stroke-width="2"/></svg>
+              Sin Seguro
+            </span>
+            <span style="font-size: 0.95rem; font-weight: 700; color: #fff;">RD $2,000</span>
+          </div>
+
+          <!-- Variant 2 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+            <span style="font-size: 0.85rem; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#3B82F6"/></svg>
+              Con Seguro Médico
+            </span>
+            <span style="font-size: 0.95rem; font-weight: 700; color: #60A5FA;">Pago Diferencia</span>
+          </div>
+          
+          <!-- Variant 3 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(16,185,129,0.1); padding: 0.4rem 0.5rem; margin: 0 -0.5rem; border-radius: 6px;">
+            <span style="font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l-8.5 4.5v5c0 4.6 3.6 8.9 8.5 10 4.9-1.1 8.5-5.4 8.5-10v-5L12 2z" fill="#10B981"/></svg>
+              <strong style="color: var(--green-400);">Plan Othon Dental Care</strong>
+            </span>
+            <span style="font-size: 1.1rem; font-weight: 800; background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">RD $500</span>
+          </div>
         </div>
 
       </div>
