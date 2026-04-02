@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO Principal ─────────────────────────────────── -->
+  <title>Plan Dental | Asegura tu sonrisa sin sorpresas</title>
+  <meta name="description" content="Únete a nuestro Plan de Membresía Dental. Prevención, consultas y emergencias cubiertas por RD$450/mes." />
+  <link rel="canonical" href="https://othonlanding.pages.dev/" />
+
+  <!-- ── Tema y favicon ────────────────────────────────── -->
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231D4ED8'/><path d='M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' fill='none'/><path d='M16 10v2M16 20v2M10 16H8M24 16h-2' stroke='%23fff' stroke-width='2' stroke-linecap='round'/></svg>" />
+
+  <!-- ── Fuentes ────────────────────────────────────────── -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- ── CSS Principal ───────────────────────────────────── -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ── Estilos Específicos Plan Dental ───────────────── -->
+  <style>
+    /* Estilos inyectados sobre la estructura existente */
+    .hero {
+      background: linear-gradient(170deg, rgba(15,23,42,0.88) 0%, rgba(30,53,88,0.92) 55%, rgba(15,23,42,0.98) 100%), 
+                  url('assets/hero_bg.png') center/cover;
+      padding-bottom: 4rem;
+    }
+    
+    .problem-solution { padding: 3rem 0; }
+    .problem-intro { 
+      font-size: 1.1rem; color: var(--text-secondary); text-align: center; 
+      margin-bottom: 2rem; font-style: italic; line-height: 1.6;
+    }
+    .features-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature-item { 
+      background: var(--glass-bg); padding: 1.25rem; 
+      border-radius: var(--radius-md); border: 1px solid var(--glass-border); 
+      transform: translateY(20px); opacity: 0;
+    }
+    .feature-item-title { 
+      font-weight: 700; color: var(--white); margin-bottom: 0.5rem; 
+      display: flex; align-items: center; gap: 8px; font-size: 1.05rem;
+    }
+    .feature-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+    
+    .benefits-section { padding: 3rem 0; background: #111827; }
+    .benefits-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .benefit-card { 
+      background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); 
+      padding: 1.25rem; border-radius: var(--radius-md);
+      transform: translateY(20px); opacity: 0;
+    }
+    .benefit-card h3 { color: #60A5FA; margin-bottom: 0.5rem; font-size: 1.05rem; font-weight: 700; }
+    .benefit-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+    .benefit-card ul { margin-top: 0.5rem; padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-secondary); }
+    .benefit-card li { margin-bottom: 0.3rem; }
+    
+    .comparison-section { padding: 3rem 0; background: var(--slate-900); }
+    .comparison-table-wrapper {
+      background: var(--glass-bg); border-radius: var(--radius-lg); 
+      border: 1px solid var(--glass-border); overflow: hidden; margin-top: 1.5rem;
+      transform: translateY(20px); opacity: 0;
+    }
+    .comparison-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .comparison-table th, .comparison-table td { padding: 1rem; border-bottom: 1px solid var(--glass-border); font-size: 0.85rem;}
+    .comparison-table th { background: rgba(255,255,255,0.05); color: var(--white); font-weight: 700; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .col-regular { color: var(--text-muted); text-decoration: line-through; }
+    .col-plan { background: rgba(16,185,129,0.1); color: var(--green-400); font-weight: 700; }
+    
+    .how-it-works { padding: 3rem 0; background: #111827; }
+    .step-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;}
+    .step-card { display: flex; gap: 1rem; align-items: flex-start; transform: translateY(20px); opacity: 0; }
+    .step-number { 
+      background: linear-gradient(135deg, #FBBF24, #F59E0B); color: #0f172a; 
+      width: 40px; height: 40px; border-radius: 50%; display: flex; 
+      align-items: center; justify-content: center; font-weight: 800; 
+      flex-shrink: 0; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(245,158,11,0.3);
+    }
+    .step-content h3 { color: var(--white); margin-bottom: 0.25rem; font-size: 1.05rem; }
+    .step-content p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+    
+    .form-wrapper {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: 1rem; margin-top: 2rem;
+    }
+    
+    .card-badges {
+      display: flex; gap: 10px; justify-content: center; margin-top: 1.5rem;
+    }
+    .card-badges img { height: 24px; opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <!-- URGENCY BANNER -->
+  <div class="urgency-banner" id="urgency-banner">
+    <span class="pulse-dot"></span>
+    <span>⚡ Oferta especial — Asegura tu salud bucal hoy mismo</span>
+    <span class="pulse-dot"></span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M14 2L4 6v6.5c0 5.5 4.3 10.7 10 13.5 5.7-2.8 10-8 10-13.5V6l-10-4z" fill="url(#logo-grad)"/>
+            <path d="M14 9A1 1 0 0013 10V13H10A1 1 0 0010 15H13V18A1 1 0 0015 18V15H18A1 1 0 0018 13H15V10A1 1 0 0014 9Z" fill="#fff"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6"/>
+                <stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text"><strong>Othon</strong> Dental Care</span>
+      </div>
+      <div class="header-badge" style="background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: #FBBF24;">
+        <span class="badge-dot" style="background: #F59E0B;"></span>
+        <span>Plan Dental</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.9 1.2 7L12 18l-6.2 3.2 1.2-7L2 9.3l7.1-1z" fill="#F59E0B"/></svg>
+            Sin Sorpresas
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Prevención Real
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          Sonríe con confianza, <br/><span class="highlight-text">nosotros cuidamos</span> el resto.
+        </h1>
+
+        <p class="hero-subtitle">
+          Tu salud bucal asegurada por menos de lo que cuesta un café al día. <strong>Únete a nuestro Plan de Membresía Dental</strong> y olvídate de los altos costos en limpiezas y emergencias.
+        </p>
+
+        <div class="price-tag">
+          <div class="price-tag-inner">
+            <span class="price-label">Membresía Mensual</span>
+            <span class="price-amount">RD$450<small style="font-size: 0.6em; color:var(--text-muted)">/mes</small></span>
+          </div>
+          <div class="price-note">Débito automático fácil y seguro</div>
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: 10px;">
+          <a href="#form-section" class="btn-primary btn-large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2l-8.5 4.5v5c0 4.6 3.6 8.9 8.5 10 4.9-1.1 8.5-5.4 8.5-10v-5L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Quiero mi Plan Dental - RD$450/mes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. EL PROBLEMA VS. LA SOLUCIÓN -->
+  <section class="problem-solution animate-on-scroll">
+    <div class="container">
+      <p class="problem-intro">
+        "Sabemos que el dentista puede ser costoso y las emergencias no avisan. <strong style="color:var(--white);">No esperes a que te duela para visitarnos.</strong>"
+      </p>
+      
+      <div class="features-list">
+        <div class="feature-item animate-block">
+          <div class="feature-item-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#10B981"/></svg>
+            Sin sorpresas
+          </div>
+          <p>Sabes exactamente cuánto vas a pagar. Nuestra membresía te da control total de tu presupuesto dental.</p>
+        </div>
+        <div class="feature-item animate-block">
+          <div class="feature-item-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#10B981"/></svg>
+            Prevención real
+          </div>
+          <p>La clave para no gastar de más es la prevención. Incluye 2 limpiezas anuales para evitar de forma temprana problemas graves.</p>
+        </div>
+        <div class="feature-item animate-block">
+          <div class="feature-item-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#10B981"/></svg>
+            Respaldo total
+          </div>
+          <p>Si te duele, vienes. Disfruta de consultas de emergencia a precio preferencial, sin la angustia de gastar miles de pesos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LOS BENEFICIOS DEL PLAN -->
+  <section class="benefits-section animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">¿Qué incluye tu membresía?</h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card animate-block">
+          <h3>Limpiezas Dentales</h3>
+          <p>Hasta 2 profilaxis al año.</p>
+          <p style="margin-top: 5px; color: var(--green-400); font-weight: 600;">Solo pagas RD$800 de materiales por visita.</p>
+        </div>
+        
+        <div class="benefit-card animate-block">
+          <h3>Consultas Ilimitadas</h3>
+          <p>Evaluaciones completas, revisiones de rutina o seguimientos.</p>
+          <p style="margin-top: 5px; color: var(--green-400); font-weight: 600;">Por solo RD$500 por sesión.</p>
+        </div>
+        
+        <div class="benefit-card animate-block">
+          <h3>Atención de Emergencias</h3>
+          <p>Cobertura inmediata en manejo de dolores intensos o abscesos.</p>
+          <p style="margin-top: 5px; color: var(--green-400); font-weight: 600;">Consultas de emergencia a RD$500.</p>
+        </div>
+        
+        <div class="benefit-card animate-block">
+          <h3>Especialidades con Descuento</h3>
+          <p>Tratamientos avanzados a precios inigualables:</p>
+          <ul>
+            <li><strong>30% OFF</strong> en Colocación de Implantes Dentales.</li>
+            <li><strong>15% OFF</strong> en Coronas sobre Implantes.</li>
+            <li><strong>10% a 30% OFF</strong> en Procedimientos Estéticos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Cuadro de Comparación -->
+  <section class="comparison-section animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">¿Por qué es un trato increíble?</h2>
+      
+      <div class="comparison-table-wrapper animate-block">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Precio Regular</th>
+              <th class="col-plan">Con el Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Consulta de Evaluación</td>
+              <td class="col-regular">RD$2,000</td>
+              <td class="col-plan">RD$500</td>
+            </tr>
+            <tr>
+              <td>Limpieza Dental</td>
+              <td class="col-regular">RD$4,000</td>
+              <td class="col-plan">RD$800 <small>(insumos)</small></td>
+            </tr>
+            <tr>
+              <td>Emergencia (Dolor)</td>
+              <td class="col-regular">RD$2,000</td>
+              <td class="col-plan">RD$500 <small>(consulta)</small></td>
+            </tr>
+            <tr>
+              <td>Implante Dental</td>
+              <td class="col-regular">Precio Full</td>
+              <td class="col-plan">-30% OFF</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">
+        *Los montos reducidos de insumos y consulta se pagan directamente en la clínica.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5. Cómo Funciona -->
+  <section class="how-it-works animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">Cómo funciona</h2>
+      
+      <div class="step-list">
+        <div class="step-card animate-block">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Suscríbete en Segundos</h3>
+            <p>Registra tu tarjeta de crédito o débito a continuación para el débito automático de tan solo RD$450/mes.</p>
+          </div>
+        </div>
+        
+        <div class="step-card animate-block">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Programa tu Cita</h3>
+            <p>Llámanos o escríbenos a nuestro WhatsApp para programar de inmediato tu primera evaluación o limpieza dental.</p>
+          </div>
+        </div>
+        
+        <div class="step-card animate-block">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Ahorra y Disfruta</h3>
+            <p>Tranquilidad total de estar cubierto, accediendo a descuentos inmediatos en todos tus tratamientos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM / LEADWAYS -->
+  <section class="form-section animate-on-scroll" id="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <iframe
+            src="https://api.leadways.app/widget/form/xWNGcpheY6dtWCyKetTd"
+            style="width:100%;height:100%;border:none;border-radius:3px"
+            id="inline-xWNGcpheY6dtWCyKetTd" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Plan Dental"
+            data-height="330"
+            data-layout-iframe-id="inline-xWNGcpheY6dtWCyKetTd"
+            data-form-id="xWNGcpheY6dtWCyKetTd"
+            title="Plan Dental"
+                >
+        </iframe>
+        <script src="https://api.leadways.app/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FAQ SECTION -->
+  <section class="faq-section animate-on-scroll" style="padding-top: 3rem;">
+    <div class="container-narrow">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            <span>¿Puedo cancelar en cualquier momento?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Recomendamos firmemente una permanencia de al menos 12 meses para que realmente puedas aprovechar los grandes descuentos (por ejemplo, en implantes). Sin embargo, siempre puedes consultar con nosotros nuestras políticas de cancelación flexible.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            <span>¿Qué pasa si tengo una emergencia un fin de semana?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Como miembro VIP de nuestro Plan Dental, tienes prioridad máxima en nuestra agenda de atención. Nos pondremos en contacto contigo lo antes posible para aliviar tu molestia.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            <span>¿Cubre a toda mi familia?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>El plan básico es individual. No obstante, si te interesa proteger también a tu familia, te invitamos a que nos preguntes por nuestros paquetes familiares con descuentos aún más especiales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FINAL CTA -->
+  <section class="final-cta animate-on-scroll">
+    <div class="container-narrow text-center">
+      <h2 class="cta-title" style="font-size: 1.3rem;">Únete a la comunidad de pacientes que ya no se preocupan por el costo de su sonrisa.</h2>
+      <p class="cta-subtitle">Testimonio: "Gracias al plan pude ponerme mis implantes ahorrando muchísimo dinero."</p>
+      
+      <a href="#form-section" class="btn-primary btn-large">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2l-8.5 4.5v5c0 4.6 3.6 8.9 8.5 10 4.9-1.1 8.5-5.4 8.5-10v-5L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Quiero mi Plan Dental - RD$450/mes
+      </a>
+
+      <!-- Logos de Tarjetas -->
+      <div class="card-badges" style="display: flex; gap: 15px; justify-content: center; margin-top: 1.5rem; align-items: center; font-size: 2.2rem; color: rgba(255, 255, 255, 0.65);">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-amex"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <svg width="20" height="20" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M14 2L4 6v6.5c0 5.5 4.3 10.7 10 13.5 5.7-2.8 10-8 10-13.5V6l-10-4z" fill="url(#logo-grad2)"/>
+            <path d="M14 9A1 1 0 0013 10V13H10A1 1 0 0010 15H13V18A1 1 0 0015 18V15H18A1 1 0 0018 13H15V10A1 1 0 0014 9Z" fill="#fff"/>
+            <defs>
+              <linearGradient id="logo-grad2" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>Othon Dental Care</span>
+        </div>
+        <p class="footer-copy">© 2026 Othon Dental Care. Todos los derechos reservados.</p>
+        <p class="footer-note">Tus datos están protegidos y son confidenciales.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script principal original para el FAQ y smooth scrolling -->
+  <script src="main.js"></script>
+
+  <!-- Script extra para nuevas animaciones (Blocks) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const animateBlocks = document.querySelectorAll('.animate-block');
+      animateBlocks.forEach((el, i) => {
+        el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
